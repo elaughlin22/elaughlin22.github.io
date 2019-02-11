@@ -90,3 +90,23 @@ canvas{
   color: black;
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
 }
+
+a {
+  color: inherit;
+}
+
+.homeBody {
+  text-align: center;
+  font-family: 'Exo', 'Roboto', sans-serif;
+}
+
+.homeList {
+  padding: 2%;
+  font-family: 'Roboto', Helvetica, sans-serif;
+  -webkit-transition: color 1s;
+  transition: color 1s;
+}
+
+.homeList:hover {
+  color: limegreen;
+}
