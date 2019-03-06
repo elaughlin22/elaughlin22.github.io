@@ -33,11 +33,11 @@ function getDay(i){
 	for(v = 0; v < schedule.feed.entry.length; v++){
 		if(fullDate === schedule.feed.entry[v]['gsx$date']['$t']){
 			i = schedule.feed.entry[v]['gsx$day']['$t'];
-			$("#day").html("DAY " + i);
+			$("#day").html("Day " + i);
 		}
 	}
 	$("#date").html(weekday[day] + ", " + monthNames[month -1] + " " + date);
-	return i;
+	return 5;
 }
 
 // --------- clock stuff ------------- //

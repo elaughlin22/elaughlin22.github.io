@@ -23,7 +23,7 @@ html, body {
       height: 90px;
       transform-origin: 361.5px 45px 0px;
       font-family: Ubuntu, sans-serif;
-      top: 7px;
+      top: -5px;
     }
 .date {
     position: absolute;
@@ -35,14 +35,14 @@ html, body {
       height: 40px;
       transform-origin: 361.5px 45px 0px;
       font-family: Ubuntu, sans-serif;
-      top: 21px;
+      top: 9px;
 }
       #hour, #minute, #ampm {
           display: inline;
       }
       #timeline{
 	position: absolute;
-    top: 50%;
+    top: 55%;
 	left: 0;
 	width: 100%;
 	height: 80px;
@@ -79,10 +79,12 @@ html, body {
 }
 #periodstext{
 	position: absolute;
-	top: -10px;
-	left: calc(5% - 5px);
+	top: 0;
+	left: 5%;
+    margin-left: -5px;
 	width: 90%;
     font-family: Ubuntu, sans-serif;
+    top: -11px;
     color: white;
 	z-index: 2;
 }
@@ -96,11 +98,6 @@ html, body {
     margin-top: 15px;
     width: 40px;
 }
-/*.timeline-time {
-    margin-left: -75px;
-    margin-top: -10px;
-    text-align: center;
-}*/
 .timeline-endtime {
     margin-left: -35px;
     margin-top: -8px;
