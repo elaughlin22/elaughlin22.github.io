@@ -1,0 +1,148 @@
+html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+      background-color: white;
+    }
+    body {
+      background-color: rgb(134, 38, 51);
+    }
+    img {
+      position: absolute;
+      top: 100px;
+      left: 32px;
+      width: 4%;
+    }
+    .clock {
+      position: absolute;
+      color: rgb(255, 255, 255);
+      font-size: 500%;
+      text-align: center;
+      left: 0px;
+      width: 100%;
+      height: 90px;
+      transform-origin: 361.5px 45px 0px;
+      font-family: Ubuntu, sans-serif;
+      top: 7px;
+    }
+.date {
+    position: absolute;
+      color: rgb(255, 255, 255);
+      font-size: 200%;
+      text-align: left;
+      left: 5%;
+      width: 90%;
+      height: 40px;
+      transform-origin: 361.5px 45px 0px;
+      font-family: Ubuntu, sans-serif;
+      top: 21px;
+}
+      #hour, #minute, #ampm {
+          display: inline;
+      }
+      #timeline{
+	position: absolute;
+    top: 50%;
+	left: 0;
+	width: 100%;
+	height: 80px;
+}
+#timeline-bg{
+	position: absolute;
+	top: 30px;
+    left: 5%;
+	width: 90%;
+	height: 10px;
+	margin: 0;
+	padding: 0;
+	background-color: rgba(255,255,255,0.10);
+	z-index: 0;
+}
+#timeline-progress{
+	position: absolute;
+	top: 30px;
+    left: 5%;
+	height: 10px;
+	margin: 0;
+	padding: 0;
+	background-color: #fff;
+	z-index: 1;
+}
+#periods{
+	position: absolute;
+	top: 0;
+	left: 5%;
+	width: 90%;
+    font-family: Ubuntu, sans-serif;
+    color: white;
+	z-index: 2;
+}
+#periodstext{
+	position: absolute;
+	top: -10px;
+	left: calc(5% - 5px);
+	width: 90%;
+    font-family: Ubuntu, sans-serif;
+    color: white;
+	z-index: 2;
+}
+.timeline-num{
+    margin-left: -40px;
+    margin-top: -87px;
+	width: 40px;
+}
+.timeline-end {
+    margin-left: -40px;
+    margin-top: 15px;
+    width: 40px;
+}
+/*.timeline-time {
+    margin-left: -75px;
+    margin-top: -10px;
+    text-align: center;
+}*/
+.timeline-endtime {
+    margin-left: -35px;
+    margin-top: -8px;
+}
+#periods td{
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+#periods td p{
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 4px;
+	bottom: -22px;
+	font-weight: 300;
+	font-size: 0.8em;
+}
+#end{
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	right: -40px;
+	height: 55px;
+	width: 40px;
+}
+#end img{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#end p{
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 8px;
+	bottom: -22px;
+	font-weight: 300;
+	font-size: 0.8em;
+}
+      #ampm {
+          font-weight: 50;
+          font-size: 50px;
+      }
