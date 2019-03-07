@@ -37,7 +37,7 @@ function getDay(i){
 		}
 	}
 	$("#date").html(weekday[day] + ", " + monthNames[month -1] + " " + date);
-	return 5;
+	return i;
 }
 
 // --------- clock stuff ------------- //

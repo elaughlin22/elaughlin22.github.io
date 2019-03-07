@@ -1,46 +1,46 @@
 html, body {
-      width: 100%;
-      height: 100%;
-      margin: 0px;
-      background-color: white;
-    }
-    body {
-      background-color: rgb(134, 38, 51);
-    }
-    img {
-      position: absolute;
-      top: 100px;
-      left: 32px;
-      width: 4%;
-    }
-    .clock {
-      position: absolute;
-      color: rgb(255, 255, 255);
-      font-size: 500%;
-      text-align: center;
-      left: 0px;
-      width: 100%;
-      height: 90px;
-      transform-origin: 361.5px 45px 0px;
-      font-family: Ubuntu, sans-serif;
-      top: -5px;
-    }
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    background-color: white;
+}
+body {
+    background-color: rgb(134, 38, 51);
+}
+img {
+    position: absolute;
+    top: 100px;
+    left: 32px;
+    width: 4%;
+}
+.clock {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-size: 500%;
+    text-align: center;
+    left: 0px;
+    width: 100%;
+    height: 90px;
+    transform-origin: 361.5px 45px 0px;
+    font-family: Ubuntu, sans-serif;
+    top: -5px;
+}
 .date {
     position: absolute;
-      color: rgb(255, 255, 255);
-      font-size: 200%;
-      text-align: left;
-      left: 5%;
-      width: 90%;
-      height: 40px;
-      transform-origin: 361.5px 45px 0px;
-      font-family: Ubuntu, sans-serif;
-      top: 9px;
+    color: rgb(255, 255, 255);
+    font-size: 200%;
+    text-align: left;
+    left: 5%;
+    width: 90%;
+    height: 40px;
+    transform-origin: 361.5px 45px 0px;
+    font-family: Ubuntu, sans-serif;
+    top: 9px;
 }
-      #hour, #minute, #ampm {
-          display: inline;
-      }
-      #timeline{
+#hour, #minute, #ampm {
+    display: inline;
+}
+#timeline{
 	position: absolute;
     top: 55%;
 	left: 0;
@@ -139,7 +139,7 @@ html, body {
 	font-weight: 300;
 	font-size: 0.8em;
 }
-      #ampm {
-          font-weight: 50;
-          font-size: 50px;
-      }
+#ampm {
+    font-weight: 50;
+    font-size: 50px;
+}
