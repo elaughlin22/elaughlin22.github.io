@@ -97,12 +97,13 @@ img {
 	width: 40px;
 }
 .timeline-end {
-    top: 2px;
+    top: 0px;
+    margin-top: 25px;
     width: 40px;
 }
 .timeline-endtime {
-    margin-left: -35px;
-    margin-top: -8px;
+    margin-left: 4px;
+    margin-top: 0px;
 }
 #periods td{
 	margin: 0;

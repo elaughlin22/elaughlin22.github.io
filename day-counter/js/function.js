@@ -19,8 +19,9 @@ function timeline(){
 		var length = ((days[x].periods[y].length * 90) / 420) + "%";
 		$("#periods-tr").append("<td style='width:" + length + "'><img src='img/" + days[x].periods[y].period + ".png' class='timeline-num'></td>");
         $("#periods-tr2").append("<td style='width:" + length + "'><div class='timeline-time'>" + days[x].periods[y].start + "</div></tr>");
+        $("#periods-tr3").append("<td style='width:" + length + "'><div style='opacity: 0'>" + days[x].periods[y].start + "</div></tr>");
 	}
-	//$("#periods-tr").append("<div id='end'><img src='img/end.png' class='timeline-end'><div class='timeline-endtime'>3:15</div></div>");
+	$("#periods-tr3").append("<div id='end'><img src='img/end.png' class='timeline-end'><div class='timeline-endtime'>3:15</div></div>");
 }
 
 function getDay(i){
