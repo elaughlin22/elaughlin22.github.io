@@ -72,6 +72,8 @@ img {
 	position: absolute;
 	top: 0;
 	left: 5%;
+    margin-left: 6px;
+    margin-top: 0px;
 	width: 90%;
     font-family: Ubuntu, sans-serif;
     color: white;
@@ -81,7 +83,8 @@ img {
 	position: absolute;
 	top: 0;
 	left: 5%;
-    margin-left: -5px;
+    margin-left: 0px;
+    margin-top: 0px;
 	width: 90%;
     font-family: Ubuntu, sans-serif;
     top: -11px;
@@ -94,8 +97,7 @@ img {
 	width: 40px;
 }
 .timeline-end {
-    margin-left: -40px;
-    margin-top: 15px;
+    top: 2px;
     width: 40px;
 }
 .timeline-endtime {

@@ -16,11 +16,11 @@ $.getJSON( url, function( json ) {
 function timeline(){
 	var x = getDay(x);
 	for(y = 0; y < days[x].periods.length; y++){
-		var length = (days[x].periods[y].length / 4.2) * (9 / 10) + "%";
+		var length = ((days[x].periods[y].length * 90) / 420) + "%";
 		$("#periods-tr").append("<td style='width:" + length + "'><img src='img/" + days[x].periods[y].period + ".png' class='timeline-num'></td>");
         $("#periods-tr2").append("<td style='width:" + length + "'><div class='timeline-time'>" + days[x].periods[y].start + "</div></tr>");
 	}
-	$("#periods").append("<div id='end'><img src='img/end.png' class='timeline-end'><div class='timeline-endtime'>3:15</div></div>");
+	//$("#periods-tr").append("<div id='end'><img src='img/end.png' class='timeline-end'><div class='timeline-endtime'>3:15</div></div>");
 }
 
 function getDay(i){
