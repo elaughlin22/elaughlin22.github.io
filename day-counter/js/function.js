@@ -15,11 +15,24 @@ $.getJSON( url, function( json ) {
 
 function timeline(){
 	var x = getDay(x);
+    var p = 1;
+    var t = 0;
 	for(y = 0; y < days[x].periods.length; y++){
 		var length = ((days[x].periods[y].length * 90) / 420) + "%";
-		$("#periods-tr").append("<td style='width:" + length + "'><img src='img/" + days[x].periods[y].period + ".png' class='timeline-num'></td>");
-        $("#periods-tr2").append("<td style='width:" + length + "'><div class='timeline-time'>" + days[x].periods[y].start + "</div></tr>");
-        $("#periods-tr3").append("<td style='width:" + length + "'><div style='opacity: 0'>" + days[x].periods[y].start + "</div></tr>");
+        var startTime = days[x].periods[y].start.split(":");
+        var startSeconds = (+startTime[0]) * 60 * 60 + (+startTime[1]) * 60;
+        $("#periods-tr").append("<td style='width:" + length + "' id='period-" + y + "' data-starttime='" + startSeconds + "'><img src='img/" + days[x].periods[y].period + ".png' class='timeline-num'></td>");
+        if(days[x].periods[y].start.split(":")[0] <= 12){
+           $("#periods-tr2").append("<td style='width:" + length + "'><div class='timeline-time'>" + days[x].periods[y].start + "</div></tr>");
+        }
+        else{
+            var hour = days[x].periods[y].start.split(":")[0];
+            var minute = days[x].periods[y].start.split(":")[1];
+            console.log(hour);
+            console.log(minute);
+            $("#periods-tr2").append("<td style='width:" + length + "'><div class='timeline-time'>" + (hour - 12) + ":" + minute + "</div></tr>");
+        }
+        $("#periods-tr3").append("<td style='width:" + length + "'><div style='opacity: 0'></div></tr>");
 	}
 	$("#periods-tr3").append("<div id='end'><img src='img/end.png' class='timeline-end'><div class='timeline-endtime'>3:15</div></div>");
 }
@@ -56,13 +69,28 @@ function clock(){
     if(schoolTime >= 29700 && schoolTime <= 54900){
         var percent = ((schoolTime - 29700) / 252) * (9 / 10) + "%";
         $("#timeline-progress").css("width", percent);
+        var periodCount = $("#periods-tr td").length;
+        if(periodCount >= 1){
+            for(u = 0; u < (periodCount); u++){
+                var startTime = $("#period-" + u).attr("data-starttime");
+                if(schoolTime >= startTime){
+                    if(!$("#period-" + u + " img").attr("src").includes("-white")){
+                        var newSrc = $("#period-" + u + " img").attr("src").replace(".png","-white.png");
+                        $("#period-" + u + " img").attr("src",newSrc);
+                    }
+                }
+            }
+        }
+    }
+    if(schoolTime >= 54900){
+        $(".timeline-end").attr("src","img/end-white.png");
     }
     var t = setTimeout(function(){clock()},500);
 }
 
 function checkMinute(i){
     if(i<10){
-    	i = "0" + i
+        i = "0" + i
     }
     return i;
 }

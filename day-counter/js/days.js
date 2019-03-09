@@ -13,9 +13,9 @@ var days = [
 			{"period": 5, "length": 40, "start": "11:45"},
 			{"period": "prt", "length": 25, "start": "12:25"},
 			{"period": 6, "length": 45, "start": "12:50"},
-			{"period": 7, "length": 40, "start": "1:35"},
-			{"period": "prt", "length": 20, "start": "2:15"},
-			{"period": 8, "length": 40, "start": "2:35"}
+			{"period": 7, "length": 40, "start": "13:35"},
+			{"period": "prt", "length": 20, "start": "14:15"},
+			{"period": 8, "length": 40, "start": "14:35"}
 		]
 	},
 	{
@@ -27,8 +27,8 @@ var days = [
 			{"period": "prt", "length": 40, "start": "11:10"},
 			{"period": 6, "length": 65, "start": "11:50"},
 			{"period": 5, "length": 40, "start": "12:55"},
-			{"period": "prt", "length": 40, "start": "1:35"},
-			{"period": 8, "length": 60, "start": "2:15"}
+			{"period": "prt", "length": 40, "start": "13:35"},
+			{"period": 8, "length": 60, "start": "14:15"}
 		]
 	},
 	{
@@ -40,8 +40,8 @@ var days = [
 			{"period": "prt", "length": 40, "start": "11:10"},
 			{"period": 5, "length": 60, "start": "11:50"},
 			{"period": "prt", "length": 40, "start": "12:50"},
-			{"period": 7, "length": 65, "start": "1:30"},
-			{"period": 8, "length": 40, "start": "2:35"}
+			{"period": 7, "length": 65, "start": "13:30"},
+			{"period": 8, "length": 40, "start": "14:35"}
 		]
 	},
 	{
@@ -53,8 +53,8 @@ var days = [
 			{"period": 4, "length": 65, "start": "10:45"},
 			{"period": 6, "length": 60, "start": "11:50"},
 			{"period": "prt", "length": 40, "start": "12:50"},
-			{"period": 8, "length": 65, "start": "1:30"},
-			{"period": 7, "length": 40, "start": "2:35"}
+			{"period": 8, "length": 65, "start": "13:30"},
+			{"period": 7, "length": 40, "start": "14:35"}
 		]
 	},
 	{
@@ -66,8 +66,8 @@ var days = [
 			{"period": 3, "length": 65, "start": "10:45"},
 			{"period": 6, "length": 45, "start": "11:50"},
 			{"period": 5, "length": 60, "start": "12:35"},
-			{"period": "prt", "length": 40, "start": "1:35"},
-			{"period": 7, "length": 60, "start": "2:15"}
+			{"period": "prt", "length": 40, "start": "13:35"},
+			{"period": 7, "length": 60, "start": "14:15"}
 		]
 	}
 ];
