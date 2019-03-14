@@ -23,14 +23,24 @@ function timeline(){
         var startSeconds = (+startTime[0]) * 60 * 60 + (+startTime[1]) * 60;
         $("#periods-tr").append("<td style='width:" + length + "' id='period-" + y + "' data-starttime='" + startSeconds + "'><img src='img/" + days[x].periods[y].period + ".png' class='timeline-num'></td>");
         if(days[x].periods[y].start.split(":")[0] <= 12){
-           $("#periods-tr2").append("<td style='width:" + length + "'><div class='timeline-time'>" + days[x].periods[y].start + "</div></tr>");
+            if(days[x].periods[y].start.split(":")[0] <= 9){
+                $("#periods-tr2").append("<td style='width:" + length + "'><div class='timeline-time-short'>" + days[x].periods[y].start + "</div></tr>");
+            }
+            else{
+                $("#periods-tr2").append("<td style='width:" + length + "'><div>" + days[x].periods[y].start + "</div></tr>");
+            }
         }
         else{
             var hour = days[x].periods[y].start.split(":")[0];
             var minute = days[x].periods[y].start.split(":")[1];
             console.log(hour);
             console.log(minute);
-            $("#periods-tr2").append("<td style='width:" + length + "'><div class='timeline-time'>" + (hour - 12) + ":" + minute + "</div></tr>");
+            if((hour - 12) <= 9){
+                $("#periods-tr2").append("<td style='width:" + length + "'><div class='timeline-time-short'>" + (hour - 12) + ":" + minute + "</div></tr>");
+            }
+            else{
+                $("#periods-tr2").append("<td style='width:" + length + "'><div>" + (hour - 12) + ":" + minute + "</div></tr>");
+            }
         }
         $("#periods-tr3").append("<td style='width:" + length + "'><div style='opacity: 0'></div></tr>");
 	}

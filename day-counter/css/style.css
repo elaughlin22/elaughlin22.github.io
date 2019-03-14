@@ -83,13 +83,18 @@ img {
 	position: absolute;
 	top: 0;
 	left: 5%;
-    margin-left: -20px;
+    margin-left: -25px;
     margin-top: 0px;
 	width: 90%;
     font-family: Ubuntu, sans-serif;
     top: -11px;
     color: white;
 	z-index: 2;
+}
+.timeline-time-short{
+    position: absolute;
+    padding-left: 6px;
+    margin-top: -10px;
 }
 .timeline-num{
     margin-left: -40px;
