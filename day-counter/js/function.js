@@ -106,15 +106,15 @@ function checkMinute(i){
 }
 
 function checkHour(i){
-    if(i == 12){
-        $("ampm").html("PM");
-    }
 	if(i > 12){
 		i = i - 12;
 		$("#ampm").html("PM");
 	}else{
 		$("#ampm").html("AM");
 	}
+    if(i == 12){
+        $("#ampm").html("PM");
+    }
 	return i;
 }
 
