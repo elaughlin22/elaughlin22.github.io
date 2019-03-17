@@ -115,6 +115,9 @@ function checkHour(i){
     if(i == 12){
         $("#ampm").html("PM");
     }
+    if(i == 0){
+        return 12;
+    }
 	return i;
 }
 
