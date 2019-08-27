@@ -15,6 +15,8 @@ $.getJSON( url, function( json ) {
 
 function timeline(){
 	var x = getDay(x);
+    var p = 1;
+    var t = 0;
 	for(y = 0; y < days[x].periods.length; y++){
 		var length = ((days[x].periods[y].length * 90) / 420) + "%";
         var startTime = days[x].periods[y].start.split(":");
@@ -31,6 +33,8 @@ function timeline(){
         else{
             var hour = days[x].periods[y].start.split(":")[0];
             var minute = days[x].periods[y].start.split(":")[1];
+            console.log(hour);
+            console.log(minute);
             if((hour - 12) <= 9){
                 $("#periods-tr2").append("<td style='width:" + length + "'><div class='timeline-time-short'>" + (hour - 12) + ":" + minute + "</div></tr>");
             }
@@ -56,7 +60,7 @@ function getDay(i){
 			$("#day").html("Day " + i);
 		}
 	}
-	$("#date").html(weekday[day] + ", " + monthNames[month - 1] + " " + date);
+	$("#date").html(weekday[day] + ", " + monthNames[month -1] + " " + date);
 	return i;
 }
 
@@ -67,10 +71,11 @@ function clock(){
     var h = today.getHours();
     var m = today.getMinutes();
     var s = today.getSeconds();
+    h = checkHour(h);
     m = checkMinute(m);
-    $("#hour").html(checkHour(h));
+    $("#hour").html(h);
     $("#minute").html(":" + m);
-    var schoolTime = h * 3600 + m * 60 + s;
+    var schoolTime = today.getHours() * 3600 + m * 60 + s;
     if(schoolTime >= 29700 && schoolTime <= 54900){
         var percent = ((schoolTime - 29700) / 252) * (9 / 10) + "%";
         $("#timeline-progress").css("width", percent);
@@ -88,11 +93,9 @@ function clock(){
         }
     }
     if(schoolTime >= 54900){
-		if($(".timeline-end").attr("src") != "img/end-white.png"){
         $(".timeline-end").attr("src","img/end-white.png");
-		}
     }
-	setTimeout(function(){clock()},1000);
+    var t = setTimeout(function(){clock()},500);
 }
 
 function checkMinute(i){
