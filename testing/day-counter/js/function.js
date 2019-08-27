@@ -87,11 +87,11 @@ function clock(){
             }
         }*/
     }
-    if(schoolTime >= 54900){
+    /*if(schoolTime >= 54900){
 		if($(".timeline-end").attr("src") != "img/end-white.png"){
         $(".timeline-end").attr("src","img/end-white.png");
 		}
-    }
+    }*/
 	setTimeout(function(){clock()},1000);
 }
 
