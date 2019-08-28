@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	clock();
+	setTimeout(function(){clock()},2000);
 });
 
 // -------------- timeline and date ------------ //
