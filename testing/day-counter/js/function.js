@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	setTimeout(function(){clock()},10000);
+	//setTimeout(function(){clock()},2000);
 });
 
 // -------------- timeline and date ------------ //
@@ -41,6 +41,7 @@ function timeline(){
         $("#periods-tr3").append("<td style='width:" + length + "'><div style='opacity: 0'></div></tr>");
 	}
 	$("#periods-tr3").append("<div id='end'><img src='img/end.png' class='timeline-end'><div class='timeline-endtime'>3:15</div></div>");
+	clock();
 }
 
 function getDay(i){
