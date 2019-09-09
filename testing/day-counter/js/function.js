@@ -10,7 +10,11 @@ $.getJSON( url, function( json ) {
   schedule = json;
  })
 	.done(function(){
-		timeline();
+		try{
+			timeline();
+		} catch (err){
+			clock();
+		}
 	});
 
 function timeline(){
