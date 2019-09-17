@@ -79,7 +79,7 @@ function clock(){
     if(schoolTime >= 29700 && schoolTime <= 54900){
         var percent = ((schoolTime - 29700) / 252) * (9 / 10) + "%";
         $("#timeline-progress").css("width", percent);
-        /*var periodCount = $("#periods-tr td").length;
+        var periodCount = $("#periods-tr td").length;
         if(periodCount >= 1){
             for(u = 0; u < (periodCount); u++){
                 var startTime = $("#period-" + u).attr("data-starttime");
@@ -90,13 +90,13 @@ function clock(){
                     }
                 }
             }
-        }*/
+        }
     }
-    /*if(schoolTime >= 54900){
+    if(schoolTime >= 54900){
 		if($(".timeline-end").attr("src") != "img/end-white.png"){
         $(".timeline-end").attr("src","img/end-white.png");
 		}
-    }*/
+    }
 	setTimeout(function(){clock()},1000);
 }
 
