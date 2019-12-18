@@ -91,6 +91,9 @@ function generateCalendar() {
 					if(loc == "") {
 						loc = "N/A";
 					}
+					if(title == "") {
+						title = "Period "+days[x].periods[y].period;
+					}
 					//$("#log").append(title+": "+startHour+":"+startMinute+"-"+endHour+":"+endMinute+"</p>");
 					rows.push([title, loc, m, startHour+":"+startMinute, m, endHour+":"+endMinute, "false"]);
 				}
