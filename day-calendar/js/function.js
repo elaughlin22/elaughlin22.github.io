@@ -12,7 +12,7 @@ function beginGeneration() {
 	$("#submit").attr("class", "button-unused");
 	$("#submit").attr("onclick", "");
 	$("#log").append("<p>Fetching schedule...</p>");
-	$.getJSON( url, function( json ) {
+	$.getJSON(url, function(json) {
 		schedule = json;
 	})
 	.done(function() {
@@ -21,8 +21,11 @@ function beginGeneration() {
 			$("#log").append("<p>Generating calendar...</p>");
 			generateCalendar();
 		} catch(err) {
-			$("#log").append("<p>Failed to generate calendar.</p>");
+			$("#log").append("<p>Failed to generate calendar. Please check your inputs for invalid characters.</p>");
 		}
+	})
+	.fail(function() {
+		$("#log").append("<p>Failed to fetch schedule. Please check your connection and try again.</p>");
 	});
 }
 
@@ -93,6 +96,9 @@ function generateCalendar() {
 					}
 					if(title == "") {
 						title = "Period "+days[x].periods[y].period;
+					}
+					if(title.includes("\"") || title.includes(",") || loc.includes("\"") || loc.includes(",")) {
+						throw(err);
 					}
 					//$("#log").append(title+": "+startHour+":"+startMinute+"-"+endHour+":"+endMinute+"</p>");
 					rows.push([title, loc, m, startHour+":"+startMinute, m, endHour+":"+endMinute, "false"]);
