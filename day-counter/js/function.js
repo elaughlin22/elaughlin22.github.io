@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 // -------------- timeline and date ------------ //
 
-var url = "https://spreadsheets.google.com/feeds/list/1BDFXHOQffqffczKyNjF1mhojIDzDvTHy-5-6KRpNb8I/od6/public/values?alt=json"
+var url = "https://spreadsheets.google.com/feeds/list/1Acf2-wXPwMJFOg6TUdGzJ5e_gqN6po_-EENVXahvBgY/od6/public/values?alt=json"
 $.getJSON( url, function( json ) {
 	console.log("done (: ");
   schedule = json;

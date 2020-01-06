@@ -7,7 +7,7 @@ const rows = [
 ];
 
 var pastYear = 0;
-var url = "https://spreadsheets.google.com/feeds/list/1BDFXHOQffqffczKyNjF1mhojIDzDvTHy-5-6KRpNb8I/od6/public/values?alt=json"
+var url = "https://spreadsheets.google.com/feeds/list/1Acf2-wXPwMJFOg6TUdGzJ5e_gqN6po_-EENVXahvBgY/od6/public/values?alt=json"
 function beginGeneration() {
 	$("#submit").attr("class", "button-unused");
 	$("#submit").attr("onclick", "");
