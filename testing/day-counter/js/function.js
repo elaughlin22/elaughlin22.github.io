@@ -47,7 +47,7 @@ function timeline(){
         }
         $("#periods-tr3").append("<td style='width:" + length + "'><div style='opacity: 0'></div></tr>");
 	}
-	if(x.split(" ")[0] == "New"){
+	if(x > 5){
 		var endingTime = "3:35";
 	}else{
 		var endingTime = "3:15";
@@ -87,7 +87,7 @@ function clock(){
     if(schoolTime >= 30600 && schoolTime <= 56100){
         var percent = ((schoolTime - 30600) / 252) * (9 / 10) + "%";
         $("#timeline-progress").css("width", percent);
-        var periodCount = $("#periods-tr td").length;
+        /*var periodCount = $("#periods-tr td").length;
         if(periodCount >= 1){
             for(u = 0; u < (periodCount); u++){
                 var startTime = $("#period-" + u).attr("data-starttime");
@@ -98,13 +98,13 @@ function clock(){
                     }
                 }
             }
-        }
+        }*/
     }
-    if(schoolTime >= 56100){
+    /*if(schoolTime >= 56100){
 		if($(".timeline-end").attr("src") != "img/end-white.png"){
 			$(".timeline-end").attr("src","img/end-white.png");
 		}
-    }
+    }*/
 	setTimeout(function(){clock()},1000);
 }
 

@@ -82,21 +82,26 @@ function generateCalendar() {
 				}
 				if(days[x].periods[y].period == "prt") {
 					//$("#log").append("PRT: "+startHour+":"+startMinute+"-"+endHour+":"+endMinute+"</p>");
-					rows.push(["PRT", "N/A", m, startHour+":"+startMinute, m, endHour+":"+endMinute, "false"]);
+					if(!$("#prtBlank").prop("checked")) {
+						rows.push(["PRT", "N/A", m, startHour+":"+startMinute, m, endHour+":"+endMinute, "false"]);
+					}
 				} else {
+					var skip = false;
 					var title = $("#"+(parseInt(days[x].periods[y].period)+8)).val();
 					var loc = $("#loc"+(parseInt(days[x].periods[y].period)+8)).val();
 					if(loc == "") {
 						loc = "N/A";
 					}
 					if(title == "") {
-						title = "Period "+days[x].periods[y].period;
+						skip = true;
 					}
 					if(title.includes("\"") || title.includes(",") || loc.includes("\"") || loc.includes(",")) {
 						throw(err);
 					}
 					//$("#log").append(title+": "+startHour+":"+startMinute+"-"+endHour+":"+endMinute+"</p>");
-					rows.push([title, loc, m, startHour+":"+startMinute, m, endHour+":"+endMinute, "false"]);
+					if(!skip) {
+						rows.push([title, loc, m, startHour+":"+startMinute, m, endHour+":"+endMinute, "false"]);
+					}
 				}
 			}
 		}
