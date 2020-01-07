@@ -82,8 +82,11 @@ function generateCalendar() {
 				}
 				if(days[x].periods[y].period == "prt") {
 					//$("#log").append("PRT: "+startHour+":"+startMinute+"-"+endHour+":"+endMinute+"</p>");
-					rows.push(["PRT", "N/A", m, startHour+":"+startMinute, m, endHour+":"+endMinute, "false"]);
+					if(!$("#prtBlank").prop("checked")) {
+						rows.push(["PRT", "N/A", m, startHour+":"+startMinute, m, endHour+":"+endMinute, "false"]);
+					}
 				} else {
+					var skip = false;
 					if(schedule.feed.entry[v]['gsx$date']['$t'].split("/")[2] > pastYear) {
 						var title = $("#"+(parseInt(days[x].periods[y].period)+8)).val();
 						var loc = $("#loc"+(parseInt(days[x].periods[y].period)+8)).val();
@@ -95,18 +98,22 @@ function generateCalendar() {
 						loc = "N/A";
 					}
 					if(title == "") {
-						title = "Period "+days[x].periods[y].period;
+						skip = true;
 					}
 					if(title.includes("\"") || title.includes(",") || loc.includes("\"") || loc.includes(",")) {
 						throw(err);
 					}
 					//$("#log").append(title+": "+startHour+":"+startMinute+"-"+endHour+":"+endMinute+"</p>");
-					rows.push([title, loc, m, startHour+":"+startMinute, m, endHour+":"+endMinute, "false"]);
+					if(!skip) {
+						rows.push([title, loc, m, startHour+":"+startMinute, m, endHour+":"+endMinute, "false"]);
+					}
 				}
 			}
 		} else if(x == "-") {
 		} else if(x == "Clsd") {
 		} else if(x == "Brk") {
+		} else if(x == "Fin") {
+			rows.push(["Final Exams", "N/A", m, "", m, "", "true"]);
 		} else {
 			//$("#log").append("<p>Altered schedule. Please refer to the official calendar.</p>");
 			rows.push(["Altered Schedule", "N/A", m, "", m, "", "true"]);

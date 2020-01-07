@@ -49,11 +49,12 @@ function timeline(){
 	}
 	if(x > 5){
 		var endingTime = "3:35";
+		setTimeout(function(){clockNew()},1000);
 	}else{
 		var endingTime = "3:15";
+		setTimeout(function(){clock()},1000);
 	}
 	$("#periods-tr3").append("<div id='end'><img src='img/end.png' class='timeline-end'><div class='timeline-endtime'>" + endingTime + "</div></div>");
-	setTimeout(function(){clock()},1000);
 }
 
 function getDay(i){
@@ -76,6 +77,39 @@ function getDay(i){
 // --------- clock stuff ------------- //
 
 function clock(){
+	var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkMinute(m);
+    $("#hour").html(checkHour(h));
+    $("#minute").html(":" + m);
+    var schoolTime = h * 3600 + m * 60 + s;
+    if(schoolTime >= 29700 && schoolTime <= 54000){
+        var percent = ((schoolTime - 29700) / 252) * (9 / 10) + "%";
+        $("#timeline-progress").css("width", percent);
+        /*var periodCount = $("#periods-tr td").length;
+        if(periodCount >= 1){
+            for(u = 0; u < (periodCount); u++){
+                var startTime = $("#period-" + u).attr("data-starttime");
+                if(schoolTime >= startTime){
+                    if(!$("#period-" + u + " img").attr("src").includes("-white")){
+                        var newSrc = $("#period-" + u + " img").attr("src").replace(".png","-white.png");
+                        $("#period-" + u + " img").attr("src",newSrc);
+                    }
+                }
+            }
+        }*/
+    }
+    /*if(schoolTime >= 56100){
+		if($(".timeline-end").attr("src") != "img/end-white.png"){
+			$(".timeline-end").attr("src","img/end-white.png");
+		}
+    }*/
+	setTimeout(function(){clock()},1000);
+}
+
+function clockNew(){
 	var today = new Date();
     var h = today.getHours();
     var m = today.getMinutes();
