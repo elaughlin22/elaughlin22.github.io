@@ -19,6 +19,9 @@ $.getJSON( url, function( json ) {
 
 function timeline(){
 	var x = getDay(x);
+	if(x.split(" ")[0] == "New"){
+		x = parseInt(x.split(" ")[1]) + 5;
+	}
 	for(y = 0; y < days[x].periods.length; y++){
 		var length = ((days[x].periods[y].length * 90) / 420) + "%";
         var startTime = days[x].periods[y].start.split(":");
@@ -44,7 +47,12 @@ function timeline(){
         }
         $("#periods-tr3").append("<td style='width:" + length + "'><div style='opacity: 0'></div></tr>");
 	}
-	$("#periods-tr3").append("<div id='end'><img src='img/end.png' class='timeline-end'><div class='timeline-endtime'>3:35</div></div>");
+	if(x.split(" ")[0] == "New"){
+		var endingTime = "3:35";
+	}else{
+		var endingTime = "3:15";
+	}
+	$("#periods-tr3").append("<div id='end'><img src='img/end.png' class='timeline-end'><div class='timeline-endtime'>" + endingTime + "</div></div>");
 	setTimeout(function(){clock()},1000);
 }
 
