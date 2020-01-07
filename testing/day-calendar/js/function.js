@@ -99,12 +99,6 @@ function generateCalendar() {
 					rows.push([title, loc, m, startHour+":"+startMinute, m, endHour+":"+endMinute, "false"]);
 				}
 			}
-		} else if(x == "-") {
-		} else if(x == "Clsd") {
-		} else if(x == "Brk") {
-		} else {
-			//$("#log").append("<p>Altered schedule. Please refer to the official calendar.</p>");
-			rows.push(["Altered Schedule", "N/A", m, "", m, "", "true"]);
 		}
 	}
 	$("#log").append("<p>Done.</p><p>Exporting CSV...</p>");
