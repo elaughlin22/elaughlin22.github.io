@@ -1,0 +1,47 @@
+body {
+	background-color: rgb(134, 38, 51);
+	text-align: center;
+	font-size: 18px;
+}
+
+h1 {
+	font-family: "Aldrich",sans-serif;
+	font-size: 36px;
+	margin: 0px;
+}
+
+h2 {
+	font-family: "Oswald",sans-serif;
+	font-size: 26px;
+}
+
+td {
+	width: 300px;
+	font-weight: bold;
+}
+
+.content {
+	background-color: white;
+	padding: 8px;
+	width: 90%;
+	margin: auto;
+	text-align: left;
+	font-family: "Open Sans",sans-serif;
+}
+
+.special_01 {
+	font-weight: bold;
+	font-style: italic;
+}
+
+.special_u {
+	font-style: italic;
+}
+
+.strike {
+	text-decoration: line-through;
+}
+
+.example {
+	color: #666;
+}
