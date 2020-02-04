@@ -1,6 +1,7 @@
 body {
 	background-color: rgb(134, 38, 51);
 	text-align: center;
+	padding-top: 32px;
 	font-size: 18px;
 }
 
@@ -8,15 +9,22 @@ h1 {
 	font-family: "Aldrich",sans-serif;
 	font-size: 36px;
 	margin: 0px;
+	margin-left: 8px;
 }
 
 h2 {
 	font-family: "Oswald",sans-serif;
 	font-size: 26px;
+	margin-left: 8px;
+}
+
+table {
+	margin: auto;
+	width: 80%;
 }
 
 td {
-	width: 300px;
+	width: 50%;
 	font-weight: bold;
 }
 
@@ -44,4 +52,14 @@ td {
 
 .example {
 	color: #666;
+}
+
+.border {
+	border: 1px solid black;
+}
+
+.top {
+	background-color: black;
+	color: white;
+	border: 1px solid black;
 }
