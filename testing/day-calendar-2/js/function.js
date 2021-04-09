@@ -2,7 +2,7 @@ $(document).ready(function() {
 	$("#log").append("<p>Waiting for user input...</p>");
 });
 
-var rows = [
+const rows = [
     ["Subject", "Location", "Start Date", "Start Time", "End Date", "End Time", "All Day Event"]
 ];
 
@@ -31,9 +31,10 @@ function beginGeneration() {
 
 function generateCalendar() {
 	pastYear = schedule.feed.entry[0]['gsx$date']['$t'].split("/")[2];
-	for(v = 0; v < schedule.feed.entry.length; v++) {
+	for(v = 1; v < 11; v++) {
 		m = schedule.feed.entry[v]['gsx$date']['$t'];
-		x = schedule.feed.entry[v]['gsx$day']['$t'];
+		x = parseInt(schedule.feed.entry[v]['gsx$day']['$t'].split(" ")[1]);
+		//$("#log").append("<p>"+m+": Day "+x+"</p>");
 		if(x >= 1 && x <= 8) {
 			for(y = 0; y < days[x].periods.length; y++) {
 				var startHour;
@@ -79,58 +80,15 @@ function generateCalendar() {
 				} else if(startMinute == "5 AM") {
 					startMinute = "05 AM";
 				}
-				if(endMinute == "5 PM") {
-					endMinute = "05 PM";
-				} else if(endMinute == "5 AM") {
-					endMinute = "05 AM";
-				}
-				if(days[x].periods[y].period == "lunch") {
-					for(t = 0; t < days[x].periods.length; t++) {
-						if(days[x].periods[t].lunchPeriod) {
-							if(schedule.feed.entry[v]['gsx$date']['$t'].split("/")[2] > pastYear) {
-								var adjustedPeriod = parseInt(days[x].periods[t].period)+8;
-							} else {
-								var adjustedPeriod = parseInt(days[x].periods[t].period);
-							}
-							var lunchValueA = $("#lunch"+adjustedPeriod+"a").prop("checked");
-							var lunchValueB = $("#lunch"+adjustedPeriod+"b").prop("checked");
-							if(lunchValueA) {
-								var lunchValue = "a";
-							} else if(lunchValueB) {
-								var lunchValue = "b";
-							} else {
-								var lunchValue = "c";
-							}
-							if(!$("#lunchBlank").prop("checked") && lunchValue == days[x].periods[y].lunch) {
-								rows.push(["Lunch", "N/A", m, startHour+":"+startMinute, m, endHour+":"+endMinute, "false"]);
-							}
-						}
+				if(days[x].periods[y].period == "prt") {
+					//$("#log").append("PRT: "+startHour+":"+startMinute+"-"+endHour+":"+endMinute+"</p>");
+					if(!$("#prtBlank").prop("checked")) {
+						rows.push(["PRT", "N/A", m, startHour+":"+startMinute, m, endHour+":"+endMinute, "false"]);
 					}
 				} else {
 					var skip = false;
-					var prt;
-					if(schedule.feed.entry[v]['gsx$date']['$t'].split("/")[2] > pastYear) {
-						var adjustedPeriod = parseInt(days[x].periods[y].period)+8;
-					} else {
-						var adjustedPeriod = parseInt(days[x].periods[y].period);
-					}
-					var title = $("#"+adjustedPeriod).val();
-					var loc = $("#loc"+adjustedPeriod).val();
-					var prtValueA = $("#"+adjustedPeriod+"a").prop("checked");
-					var lunchValueA = $("#lunch"+adjustedPeriod+"a").prop("checked");
-					var lunchValueB = $("#lunch"+adjustedPeriod+"b").prop("checked");
-					if(prtValueA) {
-						var prtValue = "a";
-					} else {
-						var prtValue = "b";
-					}
-					if(lunchValueA) {
-						var lunchValue = "a";
-					} else if(lunchValueB) {
-						var lunchValue = "b";
-					} else {
-						var lunchValue = "c";
-					}
+					var title = $("#"+(parseInt(days[x].periods[y].period)+8)).val();
+					var loc = $("#loc"+(parseInt(days[x].periods[y].period)+8)).val();
 					if(loc == "") {
 						loc = "N/A";
 					}
@@ -140,24 +98,12 @@ function generateCalendar() {
 					if(title.includes("\"") || title.includes(",") || loc.includes("\"") || loc.includes(",")) {
 						throw(err);
 					}
-					if(days[x].periods[y].prt != prtValue && days[x].periods[y].prt != undefined) {
-						skip = true;
-					}
-					if(days[x].periods[y].lunch != lunchValue && days[x].periods[y].lunch != undefined) {
-						skip = true;
-					}
+					//$("#log").append(title+": "+startHour+":"+startMinute+"-"+endHour+":"+endMinute+"</p>");
 					if(!skip) {
 						rows.push([title, loc, m, startHour+":"+startMinute, m, endHour+":"+endMinute, "false"]);
 					}
 				}
 			}
-		} else if(x == "-") {
-		} else if(x == "CLSD") {
-		} else if(x == "BRK") {
-		} else if(x == "FIN") {
-			rows.push(["Final Exams", "N/A", m, "", m, "", "true"]);
-		} else {
-			rows.push(["Altered Schedule", "N/A", m, "", m, "", "true"]);
 		}
 	}
 	$("#log").append("<p>Done.</p><p>Exporting CSV...</p>");
@@ -165,19 +111,11 @@ function generateCalendar() {
 }
 
 function exportCsv() {
-	let csvContent = "data:text/csv;charset=utf-8," + rows.map(e => e.join(",")).join("\n");
-	var encodedURI = encodeURI(csvContent);
-	$("#download").attr("href", encodedURI);
+	let csvContent = "data:text/csv;charset=utf-8," 
+    + rows.map(e => e.join(",")).join("\n");
+	var encodedUri = encodeURI(csvContent);
+	$("#download").attr("href", encodedUri);
 	$("#download").attr("download", "calendar.csv");
 	$("#download").attr("class", "button");
 	$("#log").append("<p>Done.</p>");
-	$("#submit").attr("class", "button");
-	$("#submit").attr("onclick", "reset()");
-}
-
-function reset() {
-	rows = [
-		["Subject", "Location", "Start Date", "Start Time", "End Date", "End Time", "All Day Event"]
-	];
-	beginGeneration();
 }

@@ -1,6 +1,7 @@
-html {
+body {
 	background-color: rgb(134, 38, 51);
 	color: white;
+	font-size: 16px;
 }
 
 div {
@@ -8,74 +9,72 @@ div {
 }
 
 p {
-	padding: 0px;
-	margin: 0px;
+	padding: 0;
+	margin: 0;
 }
 
 input {
-	padding: 8px;
+	padding: 0.5em;
 	margin-top: 1px;
 	margin-bottom: 1px;
-	margin-right: 2px;
-	border: 2px solid black;
-	font-size: 16px;
+	margin-right: 0.125em;
+	border: 0.125em solid black;
+	font-size: 1em;
 }
 
 .title {
-	font-size: 64px;
+	font-size: 4em;
+	text-align: center;
 }
 
 .header {
-	font-size: 16px;
-	margin-top: 8px;
+	margin-top: 0.5em;
 }
 
 .button-unused {
 	display: inline-block;
-	padding: 14px;
-	margin-right: 8px;
-	margin-top: 7px;
+	padding: 0.875em;
+	margin-right: 0.5em;
+	margin-top: 0.4375em;
 	background-color: white;
-	border: 2px solid gray;
+	border: 0.125em solid gray;
 	color: gray;
 	text-decoration: none;
 	cursor: not-allowed;
 }
 .button {
 	display: inline-block;
-	padding: 16px;
-	margin-right: 8px;
-	margin-top: 7px;
+	padding: 1em;
+	margin-right: 0.5em;
+	margin-top: 0.4375em;
 	background-color: rgb(134, 38, 51);
 	color: white;
 	text-decoration: none;
 	cursor: pointer;
 }
 .button:hover {
-	padding: 14px;
+	padding: 0.875em;
 	background-color: white;
 	color: rgb(134, 38, 51);
-	border: 2px solid rgb(134, 38, 51);
+	border: 0.125em solid rgb(134, 38, 51);
 }
 
 #container {
-	position: absolute;
-	padding: 16px;
-	padding-top: 8px;
-	width: 816px;
-	height: adaptive;
+	padding: 1em;
+	padding-top: 0.5em;
+	width: 51em;
 	background-color: white;
 	color: black;
-	margin-bottom: 16px;
+	margin: auto;
+	margin-bottom: 1em;
 }
 
 #log {
 	position: relative;
-	width: 800px;
-	height: adaptive;
-	margin-top: 4px;
-	margin-bottom: 0px;
-	padding: 8px;
+	width: 50em;
+	margin-top: 0.25em;
+	margin-bottom: 0;
+	padding: 0.5em;
 	background-color: black;
 	color: white;
 	font-family: monospace;

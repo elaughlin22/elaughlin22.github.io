@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>BJPS Calendar Generator</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,regular" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/days.js"></script>
+	<script type="text/javascript" src="js/select.js"></script>
+    <script type="text/javascript" src="js/function.js"></script>
+</head>
+
+<body>
+	<div class="title">Brebeuf Calendar Generator</div>
+	<div id="container">
+		<div>
+			<form>
+				<div class="header">What period is this class?</div>
+				<div class="custom-select" style="width:220px;">
+					<select id="period-select">
+						<option value="0">Select one:</option>
+						<option value="1">Period 1</option>
+						<option value="2">Period 2</option>
+						<option value="3">Period 3</option>
+						<option value="4">Period 4</option>
+						<option value="5">Period 5</option>
+						<option value="6">Period 6</option>
+						<option value="7">Period 7</option>
+						<option value="8">Period 8</option>
+					</select>
+				</div>
+				<p><input id="class" placeholder="Class Name" /><input id="loc9" placeholder="Room Number" /></p>
+				<div>
+					<p class="header">Instructions:</p>
+					<p>If you would like to leave your break period blank on your calendar, then leave its title blank.</p>
+					<p>Once the CSV file is downloaded, open Google Calendar.</p>
+					<p>Open the settings (near the top-right). The settings page will open.</p>
+					<p>On the left side of the page, select the menu option titled "Import & Export."</p>
+					<p>Select "Select file from your computer" and choose the CSV file downloaded from this page.</p>
+					<p>In the selection box "Add to calendar," choose the calendar where you want the schedule to go.</p>
+					<p>Select "Import." Wait for the page to respond. It might take a while, but you should get a confirmation message.</p>
+					<p>Return to your calendar. After a few seconds, the schedule for the eight-day trial run will appear.</p>
+				</div>
+			</form>
+		</div>
+		<div><a onclick="beginGeneration()" id="submit" class="button">Generate CSV</a><a id="download" class="button-unused">Download CSV</a></div>
+		<p>Log:</p>
+		<div id="log" />
+	</div>
+</body>
+</html>

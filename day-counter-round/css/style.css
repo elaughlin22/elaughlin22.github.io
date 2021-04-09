@@ -1,0 +1,36 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    background-color: white;
+}
+body {
+    background-color: rgb(134, 38, 51);
+}
+img {
+    position: absolute;/*
+    top: 100px;
+    left: 32px;*/
+    width: 4%;
+}
+#timeline{
+	position: absolute;
+	margin: 0 auto;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+#timeline-progress{
+	position: absolute;
+	top: 30px;
+    left: 5%;
+	height: 10px;
+	margin: 0;
+	padding: 0;
+	background-color: #fff;
+	z-index: 1;
+}
+.timeline-num{
+    margin-left: -20px;
+	width: 20px;
+}
