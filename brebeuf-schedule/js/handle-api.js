@@ -1,10 +1,8 @@
 var errorPage = document.getElementById("error");
 
-function handleClientLoad() {
-  try{
-    gapi.load("client:auth2", start);
-  } catch(err) {
-  }
+try{
+  gapi.load("client:auth2", start);
+} catch(err) {
 }
 
 // need to hide as secret in github repo (restricted keys)
